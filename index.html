@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>GitHub<span>Analyzer</span></h1>
+      <p>Explore developer profiles and repositories.</p>
+    </header>
+
+    <form id="search-form">
+      <input
+        id="username"
+        type="text"
+        placeholder="Enter GitHub username (e.g. octocat)"
+        aria-label="GitHub username"
+        required
+      >
+      <button type="submit">Analyze</button>
+    </form>
+
+    <p id="status" role="status"></p>
+
+    <section id="profile" hidden>
+      <div class="profile-card">
+        <img id="avatar" alt="GitHub avatar">
+        <div>
+          <h2 id="name"></h2>
+          <p id="bio"></p>
+          <a id="profile-link" target="_blank"
+             rel="noopener noreferrer">View GitHub profile ↗</a>
+        </div>
+      </div>
+
+      <div class="stats">
+        <article class="stat">
+          <p>Repositories</p><h3 id="repos">0</h3>
+        </article>
+        <article class="stat">
+          <p>Followers</p><h3 id="followers">0</h3>
+        </article>
+        <article class="stat">
+          <p>Following</p><h3 id="following">0</h3>
+        </article>
+        <article class="stat">
+          <p>Total Stars</p><h3 id="stars">0</h3>
+        </article>
+      </div>
+
+      <section class="panel">
+        <h2>Top Languages</h2>
+        <div id="languages"></div>
+      </section>
+
+      <section class="panel">
+        <div class="repo-heading">
+          <h2>Repositories</h2>
+          <select id="sort" aria-label="Sort repositories">
+            <option value="stars">Most stars</option>
+            <option value="updated">Recently updated</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+        <div id="repositories" class="repo-grid"></div>
+      </section>
+    </section>
+
+    <footer>Built with the GitHub REST API</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
